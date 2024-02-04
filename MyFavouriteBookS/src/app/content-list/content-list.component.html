@@ -1,0 +1,46 @@
+<!-- <div class="card-container">
+
+        <ng-container *ngFor="let item of contentArray; let i=index">
+            <div class="card" *ngIf="i < 5">
+      
+                <img  [src]="item.imgURL"  (click) = "logContentInfo(item.id.toString(), item.title)" />
+                <div class="card-content">
+      
+                  <h2>{{ item.title }}</h2>
+                
+      
+                  <p class="description">{{ item.description }}</p>
+      
+                  <p class="creator">Creator: {{ item.creator }}</p>
+      
+                  <p class="type" *ngIf="item.type">Type: {{ item.type }}</p>
+      
+                  <div class="tags" *ngIf="item.tags && item.tags.length > 0">
+                   <p class="tag"> Tags:{{ item.tags.join( ' , ' ) }} </p>
+                   
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div> -->
+          <div class="card-container">
+            <ng-container *ngFor="let item of contentArray; let i=index">
+              <div class="card" *ngIf="i < 5">
+                <img class="card-image" [src]="item.imgURL" alt="{{ item.title }} Image" (click)="logContentInfo(item.id.toString(), item.title)" />
+                <div class="card-content">
+                  <h2>{{ item.title }}</h2>
+                  <p class="description">{{ item.description }}</p>
+                  <p class="creator">Creator: {{ item.creator }}</p>
+                  <p class="type" *ngIf="item.type">Type: {{ item.type }}</p>
+                  <div class="tags" *ngIf="item.tags && item.tags.length > 0">
+                    <p class="tags">Tags:</p>
+                    <ul class="tag-list">
+                      <li class="tag" *ngFor="let tag of item.tags">{{ tag }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+          
+       

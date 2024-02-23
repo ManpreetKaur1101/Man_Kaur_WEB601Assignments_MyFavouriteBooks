@@ -15,6 +15,8 @@ export class ContentListComponent {
    typePresent:boolean | undefined;
   inputValue:string='';
 
+
+  defaultImageUrl:string='https://static.vecteezy.com/system/resources/previews/022/448/291/non_2x/save-earth-day-poster-environment-day-nature-green-ai-generative-glossy-background-images-tree-and-water-free-photo.jpg';
   constructor(){
   this.contentArray.push(
     
@@ -23,7 +25,7 @@ export class ContentListComponent {
         title: 'Wrong Place Wrong Time ', 
         description: 'Description for Content 1', 
         creator: 'Creator 1', 
-        imgURL: 'https://i.guim.co.uk/img/media/a39b7a5a36961a7f4ba5ec245c4a20c43f087c84/0_0_226_346/master/226.jpg?width=300&quality=45&auto=format&fit=max&dpr=2&s=87a8f9e92fb6146f7e32a0ebd9f386da', 
+        imgURL: '', 
         type: "", 
         tags: ['Tag1', 'Tag2'] 
       },

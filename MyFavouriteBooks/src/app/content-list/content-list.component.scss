@@ -1,0 +1,86 @@
+/* Search container styles */
+h2{
+  color: purple;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.search-input {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.search-button {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Item container styles */
+.item-container {
+  margin-bottom: 30px;
+  
+}
+
+.item-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+
+}
+.romance{
+  background-color: rgb(227, 239, 208);
+}
+.no-type{
+  background-color: rgb(249, 210, 236);
+}
+.thrill{
+  background-color: rgb(238, 232, 232);
+}
+.title {
+  font-size: 1.7em;
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+}
+
+.creator {
+  font-size: 14px;
+  color: #777;
+}
+
+.type {
+  font-size: 14px;
+  color: #2196f3;
+}
+
+/* Image styles */
+img {
+  max-width: 600px;
+  height: 400px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.error-text {
+  color: red;
+}
+
+.success-text {
+  color: green;   
+}

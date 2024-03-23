@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ContentCardComponent } from './content-card/content-card.component';
+import { Component, OnInit } from '@angular/core';
+import { BookService } from './book.service';
+import { Content } from './helper-files/content-interface';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet,ContentCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'MyFavouriteBooks';
+export class AppComponent implements OnInit {
+  topContentItem: Content; 
+
+  constructor(private service: BookService) { }
+
+  ngOnInit(): void {
+  
+    this.service.getContentById(6).subscribe((res: any) => {
+      this.topContentItem = res;
+    });
+  }
 }

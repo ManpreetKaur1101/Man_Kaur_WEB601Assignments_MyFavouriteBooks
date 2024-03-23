@@ -33,6 +33,10 @@ export class ContentListComponent {
   //       tags: ['Tag1', 'Tag2'] 
   //     },
   //     { 
+
+
+
+  
   //       id: 2, 
   //       title: 'What Does not kill You', 
   //       description: 'Description for Content 2', 

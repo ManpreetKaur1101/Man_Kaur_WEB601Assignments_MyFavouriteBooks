@@ -1,4 +1,6 @@
-export const contentDB=[
+import { Content } from "./content-interface"
+
+export const contentArray: Content[] = [
     
     { 
         id: 1, 

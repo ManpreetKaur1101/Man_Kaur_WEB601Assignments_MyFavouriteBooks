@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from './book.service';
-import { Content } from './helper-files/content-interface';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +7,22 @@ import { Content } from './helper-files/content-interface';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  topContentItem: Content; 
-
-  constructor(private service: BookService) { }
+  singleContentItem: any;
+  title ='Manpreet_Kaur';
+  constructor(private bookservice: BookService) { }
 
   ngOnInit(): void {
   
-    this.service.getContentById(6).subscribe((res: any) => {
-      this.topContentItem = res;
+    this.loadSingleContentItem();
+  }
+
+  loadSingleContentItem() {
+    const idOfContentItemToLoad = 1; 
+    this.bookservice.getContentById(idOfContentItemToLoad).subscribe((data: any) => {
+      this.singleContentItem = data;
+      console.log(`Content Item at id: ${idOfContentItemToLoad}`);
     });
   }
+
+  
 }

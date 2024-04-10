@@ -1,30 +1,28 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ConetntCardComponent } from '../conetnt-card/conetnt-card.component';
-import { ContentTypeFilterPipe } from '../content-type-filter.pipe';
-import { ModifyContentComponent } from '../modify-content/modify-content-component';
-import { MessageService } from '../message.service';
-
-import { BookService } from '../book.service';
-// import { ContentList } from '../helper-files/content-list';
-import { Content} from '../helper-files/content-interface'
+import { Content } from '../helper-files/content-interface';
+import { ContentCardComponent } from "../content-card/content-card.component";
+import { FilterPipePipe } from "../filter-pipe.pipe";
+import { BookServiceService } from '../book-service.service';
+import { ModifyContentComponent } from "../modify-content/modify-content.component";
+import { MessagesServiceService } from '../messages-service.service';
 
 @Component({
-  selector: 'app-content-list',
-  standalone:true,
-  imports:[CommonModule, ConetntCardComponent, ContentTypeFilterPipe,FormsModule,ModifyContentComponent,MessageService],
-  templateUrl: './content-list.component.html',
-  styleUrl: './content-list.component.scss'
- 
+    selector: 'app-content-list',
+    standalone: true,
+    templateUrl: './content-list.component.html',
+    styleUrl: './content-list.component.scss',
+    imports: [CommonModule, ContentCardComponent, FilterPipePipe, FormsModule, ModifyContentComponent]
 })
+
 export class ContentListComponent implements OnInit {
   contentArray: Content[] = [];
 
-  constructor(private bookservice: BookService, private messageService: MessageService) {  }  
+  constructor(private BookService: BookServiceService, private messageService: MessagesServiceService) {  }  
 
   onContentAdded(newContent: Content) {
-    this.contentArray.push(newContent);
+    //this.contentArray.push(newContent);
     this.messageService.sendMessage(`Content '${newContent.title}' added successfully!`);
   }
   ngOnInit() {
@@ -32,7 +30,7 @@ export class ContentListComponent implements OnInit {
   }
 
   loadContentArray() {
-    this.bookservice.getContent().subscribe((data) => {
+    this.BookService.getContentArray().subscribe((data) => {
       this.contentArray = data;
       console.log('Content array loaded!');
     });
@@ -46,12 +44,13 @@ export class ContentListComponent implements OnInit {
       const foundContent = this.contentArray.find(content => content.title.toLowerCase() === this.searchTitle); 
 
       if (foundContent) {
-        this.searchMsg = `Title ${this.searchTitle}" exists in Content`;
+        this.searchMsg = `Title "${this.searchTitle}" exists in Content.`;
         this.searchClr = 'green';
       }
       else {
-        this.searchMsg = `Title ${this.searchTitle}" doesn't exist in Content`;
+        this.searchMsg = `Title "${this.searchTitle}" doesn't exist in Content.`;
         this.searchClr = 'red';
       }
     }
 }
+

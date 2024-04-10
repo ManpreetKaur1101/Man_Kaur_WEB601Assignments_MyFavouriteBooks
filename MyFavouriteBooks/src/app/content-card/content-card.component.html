@@ -1,0 +1,23 @@
+<div class="content-card" >
+<mat-card>
+    <img mat-card-image *ngIf="content.imgURL; else defaultImg" src="{{content.imgURL}}" alt="{{content.title}}" class="imgs" (click)="onCardClick(content)">
+    <ng-template #defaultImg>
+        <img mat-card-image src="https://images.unsplash.com/photo-1612351641432-20a0f196086c?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlJTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D" alt="Default Image" class="imgs" (click)="onCardClick(content)">
+    </ng-template>
+    
+    <mat-card-header>
+      <mat-card-title>{{ content.title }}</mat-card-title>
+      <mat-card-subtitle>{{ content.creator }}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <p>{{ content.description }}</p>
+      <p appHoverAffect [hoverStyle]="'textDecoration'"><strong>Type: </strong> {{content.type}}</p>
+        <strong>Tags:</strong>
+        <ul appHoverAffect [hoverStyle]="'fontWeight'" *ngFor="let tag of content.tags">
+            <li>{{tag}}</li>
+        </ul>
+    </mat-card-content>
+  </mat-card>
+</div>
+  

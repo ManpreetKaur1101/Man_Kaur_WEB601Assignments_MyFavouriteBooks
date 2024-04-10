@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from './book.service';
+import { BookServiceService } from './book-service.service';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  title = 'MyFavouriteBooks';
   singleContentItem: any;
-  title ='Manpreet_Kaur';
-  constructor(private bookservice: BookService) { }
 
+  constructor(private BookService: BookServiceService) {}
   ngOnInit(): void {
-  
     this.loadSingleContentItem();
   }
 
   loadSingleContentItem() {
-    const idOfContentItemToLoad = 1; 
-    this.bookservice.getContentById(idOfContentItemToLoad).subscribe((data: any) => {
+    const idOfContentItemToLoad = 3; 
+    this.BookService.getContentItemById(idOfContentItemToLoad).subscribe((data) => {
       this.singleContentItem = data;
       console.log(`Content Item at id: ${idOfContentItemToLoad}`);
     });

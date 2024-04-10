@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Content } from '../helper-files/content-interface';
 import { ContentCardComponent } from "../content-card/content-card.component";
 import { FilterPipePipe } from "../filter-pipe.pipe";
-import { BookServiceService } from '../book-service.service';
+import { BookServiceService } from '../Book-service.service';
 import { ModifyContentComponent } from "../modify-content/modify-content.component";
 import { MessagesServiceService } from '../messages-service.service';
 
@@ -32,7 +32,6 @@ export class ContentListComponent implements OnInit {
   loadContentArray() {
     this.BookService.getContentArray().subscribe((data) => {
       this.contentArray = data;
-      console.log('Content array loaded!');
     });
   }
 

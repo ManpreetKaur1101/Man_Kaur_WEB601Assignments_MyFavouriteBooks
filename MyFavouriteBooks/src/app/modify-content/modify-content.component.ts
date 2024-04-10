@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { FormsModule } from '@angular/forms';
-import { BookServiceService } from '../book-service.service';
+import { BookServiceService } from '../Book-service.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';

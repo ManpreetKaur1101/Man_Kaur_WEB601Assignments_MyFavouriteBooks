@@ -23,9 +23,9 @@ export class BookServiceService {
     return of(contentArray);
   }
 
-  getContentItemById(id: number): Observable<any> {
-    const contentItem = contentArray.find(item => item.id === id);
-    this.messagesService.sendMessage(`Content Item at id: ${id}`);
-    return of(contentItem);
+  getContentItemById(id: number): Observable<Content> {
+    const url = `${this.apiUrl}/${id}`;
+    this.messagesService.sendMessage(`Id ${id} retrived` );
+    return this.http.get<Content>(url);
   }
 }

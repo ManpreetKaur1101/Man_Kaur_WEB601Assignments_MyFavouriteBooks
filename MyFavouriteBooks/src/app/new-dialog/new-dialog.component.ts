@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Content } from '../helper-files/content-interface';
 import { FormsModule } from '@angular/forms';
-import { BookServiceService } from '../book-service.service';
+import { BookServiceService } from '../Book-service.service';
 
 
 @Component({

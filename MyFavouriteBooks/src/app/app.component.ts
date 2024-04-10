@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookServiceService } from './book-service.service';
+import { BookServiceService } from './Book-service.service';
 
 
 @Component({
@@ -13,16 +13,16 @@ export class AppComponent implements OnInit {
 
   constructor(private BookService: BookServiceService) {}
   ngOnInit(): void {
-    this.loadSingleContentItem();
+    // this.loadSingleContentItem();
   }
 
-  loadSingleContentItem() {
-    const idOfContentItemToLoad = 3; 
-    this.BookService.getContentItemById(idOfContentItemToLoad).subscribe((data) => {
-      this.singleContentItem = data;
-      console.log(`Content Item at id: ${idOfContentItemToLoad}`);
-    });
-  }
+  // loadSingleContentItem() {
+  //   const idOfContentItemToLoad = 1; 
+  //   this.BookService.getContentItemById(idOfContentItemToLoad).subscribe((data) => {
+  //     this.singleContentItem = data;
+  //     console.log(`Content Item at id: ${idOfContentItemToLoad}`);
+  //   });
+  // }
 
   
 }
